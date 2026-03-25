@@ -33,29 +33,51 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-blend-color-burn dark:bg-gray-900 min-h-screen p-4">
-      <h1 className="text-3xl font-bold mb-4">AI Content Generator</h1>
-      <div className="w-full max-w-md">
-        <form
-          className="flex items-center gap-4 flex-col"
-          onSubmit={handleSubmit}
-        >
-          <input
-            className="border border-gray-300 rounded-2xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
-            type="text"
-            placeholder="Enter your prompt..."
-            value={prompt}
-            onChange={(e) => setPrompt(e.target.value)}
-          />
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-2xl hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
-            disabled={loading}
-          >
-            Generate
-          </button>
-        </form>
-      </div>
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 font-sans flex flex-col">
+      <main className="flex-1 flex flex-col items-center px-4 py-8">
+        <h1 className="text-xl font-semibold text-gray-800 dark:text-white p-2">
+          AI Content Generator
+        </h1>
+        <div className="w-full max-w-3xl space-y-4 pt-5">
+          <form onSubmit={handleSubmit} className="flex gap-3">
+            <input
+              type="text"
+              placeholder="Enter your prompt..."
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              className="flex-1 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 
+            bg-white dark:bg-gray-800 text-gray-800 dark:text-white
+            focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            />
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="px-6 py-3 rounded-xl font-medium text-white 
+            bg-blue-500 hover:bg-blue-600 
+            transition disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "..." : "Generate"}
+            </button>
+          </form>
+        </div>
+
+        <div className="w-full max-w-3xl mt-8">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 min-h-[200px]">
+            {loading ? (
+              <p className="text-gray-500">Generating content...</p>
+            ) : result ? (
+              <p className="text-gray-700 dark:text-gray-200 whitespace-pre-line leading-relaxed">
+                {result}
+              </p>
+            ) : (
+              <p className="text-gray-400">
+                Your generated content will appear here...
+              </p>
+            )}
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
