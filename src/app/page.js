@@ -114,7 +114,7 @@ export default function Home() {
                   <div className="h-4 w-2/3 rounded-full bg-white/10 animate-pulse" />
                 </div>
               ) : result ? (
-                <div className="max-h-[360px] sm:max-h-[420px] overflow-y-auto pr-1 sm:pr-2">
+                <div className="w-full">
                   <div className="whitespace-pre-line leading-relaxed text-sm sm:text-base text-white/90">
                     <Markdown>{result}</Markdown>
                   </div>
