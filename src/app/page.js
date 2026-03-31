@@ -4,6 +4,7 @@ import { useState } from "react";
 import Markdown from "react-markdown";
 import { FiSend } from "react-icons/fi";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { promptTemplates } from "@/contants/promptTemplates";
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
@@ -83,6 +84,19 @@ export default function Home() {
                 )}
               </button>
             </form>
+            {promptTemplates.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {promptTemplates.map((template, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setPrompt(template.template)}
+                    className="text-xs sm:text-sm px-3 py-1 rounded-full bg-white/10 border border-white/10 text-white/70 hover:bg-white/20 cursor-pointer"
+                  >
+                    {template.label}
+                  </button>
+                ))}
+              </div>
+            )}
             <span className="text-xs text-white/50 mt-4 block">
               ⚡ Note: This app uses a free AI API, so responses may take a few
               seconds depending on prompt complexity.{" "}
