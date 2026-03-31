@@ -98,7 +98,7 @@ export default function Home() {
               </div>
             )}
             <span className="text-xs text-white/50 mt-4 block">
-              ⚡ Note: This app uses a free AI API, so responses may take a few
+              ⚡ Note: This app uses a free OpenAI API, so responses may take a few
               seconds depending on prompt complexity.{" "}
             </span>
           </div>
