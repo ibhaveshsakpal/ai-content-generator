@@ -12,7 +12,7 @@ export async function POST(request) {
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "stepfun/step-3.5-flash:free",
+      model: "openai/gpt-oss-120b:free",
       messages: [
         {
           role: "user",
