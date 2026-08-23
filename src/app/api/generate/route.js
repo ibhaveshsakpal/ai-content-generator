@@ -12,7 +12,7 @@ export async function POST(request) {
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "openai/gpt-oss-120b:free",
+      model: "deepseek/deepseek-v4-flash-0731",
       messages: [
         {
           role: "user",
